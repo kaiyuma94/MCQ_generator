@@ -1,0 +1,42 @@
+openai:
+  api_key: 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
+  model: gpt-4o-mini
+  temperature: 1
+  max_tokens: 1000
+
+input:
+  file_path: "data/input/"
+  file_extension: ".xlsx"
+  question_column: "Question"
+  answers_columns: ["A", "B", "C", "D"]
+
+output:
+  file_path: "data/output/"
+  file_name: "processed_questions"
+  file_extension: ".xlsx"
+
+processing:
+  retries: 3
+  delay_between_retries: 1
+  batch_size: 5
+
+logging:
+  level: INFO
+  format: "%(asctime)s - %(levelname)s - %(message)s"
+
+prompt:
+  system_message: "You are an expert at standardizing multiple choice questions with expert anatomy knowledge. Improve clarity, remove ambiguity, ensure distinct options, and maintain academic rigor. "
+  template: |
+    Question: {Question}
+    A) {A}
+    B) {B}
+    C) {C}
+    D) {D}
+
+    Please rewrite this question in this exact format:
+    Question: [improved question]
+    A) [option]
+    B) [option]
+    C) [option]
+    D) [option]
+    Correct Answer: [A/B/C/D]

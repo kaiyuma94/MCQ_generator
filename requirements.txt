@@ -1,0 +1,5 @@
+openai==1.60.1
+openpyxl
+pandas==2.2.3
+PyYAML==6.0.2
+python-dotenv
