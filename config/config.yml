@@ -1,5 +1,4 @@
 openai:
-  api_key: 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
   model: gpt-4o-mini
   temperature: 1
   max_tokens: 1000
